@@ -13,3 +13,10 @@ Application POS Android pour la vente en magasin avec un panneau d'administratio
 - Vente en magasin via l'application Android.
 - Gestion des caissiers, produits et stock via le panneau d'administration.
 - Synchronisation des données via l'API backend.
+
+## Compilation de l'application Android (APK)
+
+1. Ouvre le dossier `android-app/` dans Android Studio.
+2. Clique sur **Build** > **Build Bundle(s) / APK(s)** > **Build APK(s)**.
+3. Le fichier APK sera généré dans `android-app/app/build/outputs/apk/`.
+4. Récupère le fichier APK et installe-le sur ton appareil Android.
