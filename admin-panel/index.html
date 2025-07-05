@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Panneau Admin POS</title>
+    <script>
+        async function addCashier(event) {
+            event.preventDefault();
+            const name = document.getElementById('cashierName').value;
+            const password = document.getElementById('cashierPassword').value;
+            const res = await fetch('/cashiers', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ name, password })
+            });
+            if (res.ok) {
+                alert('Caissier ajouté !');
+                document.getElementById('cashierForm').reset();
+            } else {
+                alert('Erreur lors de l\'ajout');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Panneau d'administration POS</h1>
+    <p>Bienvenue sur le panneau d'administration. Utilise les routes API pour gérer caissiers, produits et stock.</p>
+    <ul>
+        <li><a href="/cashiers" target="_blank">Voir les caissiers (GET)</a></li>
+        <li><a href="/products" target="_blank">Voir les produits (GET)</a></li>
+        <li><a href="/stock" target="_blank">Voir le stock (GET)</a></li>
+    </ul>
+    <h2>Ajouter un caissier</h2>
+    <form id="cashierForm" onsubmit="addCashier(event)">
+        <input type="text" id="cashierName" placeholder="Nom caissier" required>
+        <input type="password" id="cashierPassword" placeholder="Mot de passe" required>
+        <button type="submit">Ajouter</button>
+    </form>
+    <!-- Tu peux ajouter d'autres formulaires pour produits et stock de la même façon -->
+</body>
+</html>
